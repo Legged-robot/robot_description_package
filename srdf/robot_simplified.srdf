@@ -1,0 +1,43 @@
+<?xml version="1.0" ?>
+<robot name="robot">
+    <group name="whole_body">
+        <joint name="root_joint" />
+        <joint name="LF_JHIP" />
+        <joint name="LF_JKNEE" />
+        <joint name="LF_JANCKLE" />
+        <joint name="LF_JFOOTPOINT" />
+    </group>
+    <virtual_joint name="root_joint" type="floating" parent_frame="world_frame" child_link="base" />
+
+    <group name="lf_leg">
+        <joint name="LF_JHIP" />
+        <joint name="LF_JKNEE" />
+        <joint name="LF_JANCKLE" />
+        <chain base_link="base" tip_link="LF_FOOTPOINT" />
+    </group>
+
+
+    <group name="l_legs">
+        <group name="lf_leg" />
+    </group>
+    <group name="f_legs">
+        <group name="lf_leg" />
+    </group>
+
+
+    <end_effector name="lf_foot" parent_link="LF_FOOTPOINT" group="lf_leg" />
+
+
+    <group_state name="standing" group="whole_body">
+        <joint name="root_joint" value="0. 0. 0. 0. 0. 0. 1." />
+        <joint name="LF_JHIP" value="0." />
+        <joint name="LF_JKNEE" value="0." />
+        <joint name="LF_JANCKLE" value="0." />
+    </group_state>
+
+    <disable_collisions link1="base" link2="LF_THIGH" reason="Adjacent" />
+    <disable_collisions link1="LF_THIGH" link2="LF_CALF" reason="Adjacent" />
+    <disable_collisions link1="LF_CALF" link2="LF_FOOT" reason="Adjacent" />
+    <disable_collisions link1="LF_FOOT" link2="LF_FOOTPOINT" reason="Adjacent" />
+
+</robot>

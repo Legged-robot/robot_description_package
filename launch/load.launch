@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<launch>
+
+  <!-- Give the robot description parameter a name -->
+  <arg name="description_name"           default="robot_description"/>
+  <!-- Set robot description path -->
+  <arg name="description_file"           default="$(find robot_simple_description)/urdf/robot_simplified.urdf"/>
+
+  <!-- Load URDF as parameter -->
+  <param name="$(arg description_name)" textfile="$(arg description_file)"/>
+
+  <!-- Run xacro script to generate Robot description -->
+</launch>

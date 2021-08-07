@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+
+<package format="2">
+
+  <name>robot_simple_description</name>
+  <version>1.0.0</version>
+  <description>Robot Description Package</description>
+
+  <license>BSD-3</license>
+
+  <author email="v.rakcevic@campus.tu-berlin.de">Linus Isler</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <test_depend>roslaunch</test_depend>
+
+</package>
