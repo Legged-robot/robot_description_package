@@ -5,6 +5,10 @@
 <!-- This file contains the description of the FORE robot. -->
 <robot name="robot"
     xmlns:xacro="http://www.ros.org/wiki/xacro">  
+    <!-- Xacro:Properties -->
+    <!-- [kg * m^2] -->
+    <!-- [A] -->
+    
     <!-- Material for the visual primitives -->  
     <material name="robot_material">    
         <color rgba="0.7 0.7 0.7 1.0"/>  
@@ -34,9 +38,9 @@
     <!-- Dummy inertia link, because KDL cannot have inertia on the base link -->  
     <link name="base_inertia">    
         <inertial>      
-            <origin rpy="0 0 0" xyz="-0.001960558279 -0.001413217745 0.050207125344"/>      
-            <mass value="16.793507758"/>      
-            <inertia ixx="0.217391101503" ixy="-0.00132873239126" ixz="-0.00228200226173" iyy="0.639432546734" iyz="-0.00138078263145" izz="0.62414077654"/>    
+            <origin rpy="0 0 0" xyz="0. 0. 0."/>      
+            <mass value="0.2565404"/>      
+            <inertia ixx="6.338e-04" ixy="5.4452284e-05" ixz="5.826e-17" iyy="1.612e-04" iyz="-3.595e-16" izz="7.086e-04"/>    
         </inertial>  
     </link>  
     <!--                            <<<<<<<<<<<<    THIGH    >>>>>>>>>>>>                        -->
@@ -87,9 +91,9 @@
         </collision> 
 
         <inertial>      
-            <origin rpy="0 0 0" xyz="0.064516258147 -0.003787101702 -0.000152184388"/>      
-            <mass value="1.42462064"/>      
-            <inertia ixx="0.00243023349564" ixy="-1.53023971e-05" ixz="-2.1819095354e-05" iyy="0.00230257239103" iyz="2.6473021273e-05" izz="0.0019806759227"/>    
+            <origin rpy="0 0 0" xyz="0.0 0.0 -0.07"/>      
+            <mass value="0.497881"/>      
+            <inertia ixx="1.468e-03" ixy="-4.233e-15" ixz="9.3992189e-05" iyy="1.610e-03" iyz="-2.316e-15" izz="4.965e-04"/>     
         </inertial>  
     </link>  
 
@@ -148,9 +152,9 @@
             <material name="robot_material"/>    
         </collision>     
         <inertial>      
-            <origin rpy="0 0 0" xyz="-0.003897968082 0.054226618537 -0.214583373795"/>      
-            <mass value="1.634976467"/>      
-            <inertia ixx="0.0120367944369" ixy="6.762065206e-05" ixz="0.000287806340448" iyy="0.0120643637939" iyz="-0.00140610131218" izz="0.00249422574881"/>    
+            <origin rpy="0 0 0" xyz="0.0 0.0 -0.065"/>      
+            <mass value="0.082921"/>      
+            <inertia ixx="1.544e-04" ixy="1.595e-17" ixz="-3.1006794e-05" iyy="1.569e-04" iyz="6.006e-18" izz="1.6461495e-05"/>  
         </inertial>  
     </link>  
 
@@ -196,9 +200,9 @@
         </collision>   
 
         <inertial>      
-            <origin rpy="0 0 0" xyz="0.030816858139 -0.004617229294 0.000893125713"/>      
-            <mass value="0.207204302"/>      
-            <inertia ixx="0.0002104880248" ixy="-5.6750980345e-05" ixz="1.0127699391e-05" iyy="0.000676270210023" iyz="-8.22869024e-07" izz="0.000545032674924"/>    
+            <origin rpy="0 0 0" xyz="0.0 0.0 -0.045"/>      
+            <mass value="0.0023701"/>      
+            <inertia ixx=" 2.7634609e-04" ixy="-2.819e-18" ixz="-2.0650e-07" iyy="2.6780627e-05" iyz="-7.092e-16" izz="1.148229e-06"/> 
         </inertial>  
     </link>  
 
