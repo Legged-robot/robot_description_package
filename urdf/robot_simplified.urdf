@@ -14,7 +14,18 @@
         <color rgba="0.7 0.7 0.7 1.0"/>  
     </material>  
     <!--                            <<<<<<<<<<<<    Base link    >>>>>>>>>>>>                        --> 
-    <link name="base">    
+    <link name="base"> 
+        <visual>      
+            <origin xyz="0 0 0"/>      
+            <geometry>        
+                <sphere radius="0.02"/>      
+            </geometry>    
+        </visual>              
+    </link>  
+
+    <!--                            <<<<<<<<<<<<    BASE_INERTIAL    >>>>>>>>>>>>                        -->
+    <!-- Dummy inertia link, because KDL cannot have inertia on the base link -->  
+    <link name="base_inertial">  
         <visual>      
             <origin rpy="0 0 0" xyz="0 0 0"/>      
             <geometry>        
@@ -27,22 +38,23 @@
             <geometry>        
                 <box size="0.4 0.2 0.05"/>      
             </geometry>           
-        </collision>            
-    </link>  
-    <!-- Fixed joint to add dummy inertia link -->  
-    <joint name="base_to_base_inertia" type="fixed">    
-        <parent link="base"/>    
-        <child link="base_inertia"/>    
-        <origin rpy="0 0 0" xyz="0 0 0"/>  
-    </joint>  
-    <!-- Dummy inertia link, because KDL cannot have inertia on the base link -->  
-    <link name="base_inertia">    
+        </collision>   
         <inertial>      
             <origin rpy="0 0 0" xyz="0. 0. 0."/>      
             <mass value="0.2565404"/>      
             <inertia ixx="6.338e-04" ixy="5.4452284e-05" ixz="5.826e-17" iyy="1.612e-04" iyz="-3.595e-16" izz="7.086e-04"/>    
         </inertial>  
     </link>  
+
+    <!-- Fixed joint to add dummy inertia link -->  
+    <joint name="base_to_base_inertial" type="prismatic">    
+        <parent link="base"/>    
+        <child link="base_inertial"/>    
+        <origin rpy="0 0 0" xyz="0 0 0"/>  
+        <limit lower="-10" upper="30" effort="1000.0" velocity="10"/> 
+        <axis xyz="0 0 1"/>   
+    </joint>  
+
     <!--                            <<<<<<<<<<<<    THIGH    >>>>>>>>>>>>                        -->
     <link name="LF_THIGH">    
     <!-- r is around y, p is around x, y is around z Pi/2 is 1.57079632679  -->
@@ -99,7 +111,7 @@
 
     <!-- Hip joint -->  
     <joint name="LF_JHIP" type="revolute">    
-        <parent link="base"/>    
+        <parent link="base_inertial"/>    
         <child link="LF_THIGH"/>    
         <origin xyz="0.19 0.11 0.0"/>    
         <axis xyz="0 1 0"/>    

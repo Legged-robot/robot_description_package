@@ -7,8 +7,9 @@
         <joint name="LF_JANCKLE" />
         <joint name="LF_JFOOTPOINT" />
     </group>
-    <virtual_joint name="root_joint" type="floating" parent_frame="world_frame" child_link="base" />
-
+    <virtual_joint name="root_joint" type="floating" parent_frame="world_frame" child_link="base_inertial" />
+    <passive_joint name="base_to_base_inertial"/>    <!-- hidden from planning but acting as a constraint  --> 
+    
     <group name="lf_leg">
         <joint name="LF_JHIP" />
         <joint name="LF_JKNEE" />
