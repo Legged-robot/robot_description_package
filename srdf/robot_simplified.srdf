@@ -29,7 +29,7 @@
 
 
     <group_state name="standing" group="whole_body">
-        <joint name="root_joint" value="0. 0. 0. 0. 0. 0. 1." />
+        <joint name="root_joint" value="0. 0. 0.37 0. 0. 0. 1." />
         <joint name="LF_JHIP" value="0." />
         <joint name="LF_JKNEE" value="0." />
         <joint name="LF_JANCKLE" value="0." />
