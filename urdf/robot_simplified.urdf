@@ -47,7 +47,7 @@
     </link>  
 
     <!-- Fixed joint to add dummy inertia link -->  
-    <joint name="base_to_base_inertial" type="prismatic">    
+    <joint name="base_to_base_inertial" type="fixed">    
         <parent link="base"/>    
         <child link="base_inertial"/>    
         <origin rpy="0 0 0" xyz="0 0 0"/>  
