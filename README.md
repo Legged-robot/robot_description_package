@@ -1,7 +1,8 @@
 # Robot description (URDF)
 ## Overview
 
-This package contains a simplified robot description (URDF).
+This package contains a simplified robot description (URDF):  
+![](docs/images/fore_model.png)
 
 ## License
 
